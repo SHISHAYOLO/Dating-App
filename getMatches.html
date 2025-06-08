@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neue Partner – Wahre Liebe</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav>
+    <a href="mainpage.html">Startseite</a> |
+    <a href="profile.html">Mein Profil</a> |
+    <button id="logoutBtn">Ausloggen</button>
+  </nav>
+
+  <main>
+    <h1>Finde neue Partner:innen</h1>
+    <section id="profileCard">
+      <p><strong>Name:</strong> <span id="name">Lade…</span></p>
+      <p><strong>Alter:</strong> <span id="age">–</span></p>
+      <p><strong>Geschlecht:</strong> <span id="gender">–</span></p>
+      <p><strong>Biografie:</strong></p>
+      <p id="biography">–</p>
+    </section>
+
+    <div class="actions">
+      <button id="btnNext">Nächster Partner</button>
+      <button id="btnLike">Gefällt mir</button>
+    </div>
+
+    <div id="errorMsg" aria-live="polite"></div>
+  </main>
+
+  <script src="js/logout.js"></script>
+  <script src="js/getMatches.js"></script>
+</body>
+</html>

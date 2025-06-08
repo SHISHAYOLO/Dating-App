@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mein Profil – 50+ Dating</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Startseite</a> |
+    <a href="profile.html">Mein Profil</a> |
+    <button id="logoutBtn">Ausloggen</button>
+  </nav>
+
+  <main>
+    <h1>Mein Profil</h1>
+
+    <!-- Anzeige bestehender Profildaten -->
+    <section id="userProfile" hidden>
+      <h2>Deine Daten</h2>
+      <p><strong>Name:</strong> <span id="name">–</span></p>
+      <p><strong>Alter:</strong> <span id="age">–</span></p>
+      <p><strong>Geschlecht:</strong> <span id="gender">–</span></p>
+      <p><strong>Biografie:</strong></p>
+      <p id="biography">–</p>
+    </section>
+
+    <!-- Formular zum Anlegen eines neuen Profils -->
+    <section id="addAdditionalInfo" hidden>
+      <h2>Profil anlegen</h2>
+      <input type="text" id="inputName"  placeholder="Name" />
+      <input type="number" id="inputAge"       placeholder="Alter" min="18" max="120" />
+      <select id="inputGender">
+        <option value="">Geschlecht</option>
+        <option value="m">männlich</option>
+        <option value="w">weiblich</option>
+        <option value="d">divers</option>
+      </select>
+      <textarea id="inputBiography" rows="3" placeholder="Kurze Biografie"></textarea>
+      <button id="btnSaveAdditionalInfo">Speichern</button>
+    </section>
+
+    <!-- Formular zum Bearbeiten eines bestehenden Profils -->
+    <section id="updateProfile" hidden>
+      <h2>Profil bearbeiten</h2>
+      <p><strong>Name:</strong> <span id="name">–</span></p>
+      <input type="number" id="inputAge"       placeholder="Alter" min="18" max="120" />
+      <select id="inputGender">
+        <option value="">Geschlecht</option>
+        <option value="m">männlich</option>
+        <option value="w">weiblich</option>
+        <option value="d">divers</option>
+      </select>
+      <textarea id="inputBiography" rows="3" placeholder="Kurze Biografie"></textarea>
+      <button id="btnUpdateProfile">Aktualisieren</button>
+    </section>
+
+    <!-- Button zum Löschen des Profils -->
+    <section id="deleteProfile" hidden>
+      <h2>Profil löschen</h2>
+      <button id="btnDeleteInformation">Profil entfernen</button>
+    </section>
+
+    <!-- Bereich für Fehlermeldungen -->
+    <div id="errorMsg" aria-live="polite"></div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/logout.js"></script>
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrieren – Wahre Liebe</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Startseite</a> |
+    <a href="login.html">Einloggen</a> |
+    <a href="register.html">Registrieren</a>
+  </nav>
+
+  <main>
+    <section>
+      <h1>Registrieren</h1>
+      <form id="registerForm">
+        <div>
+          <label for="inputName">Name</label>
+          <input
+            type="text"
+            id="inputName"
+            name="name"
+            placeholder="Vor- und Nachname"
+            required
+          />
+        </div>
+        <div>
+          <label for="inputAge">Alter</label>
+          <input
+            type="number"
+            id="inputAge"
+            name="age"
+            placeholder="Alter (18–120)"
+            min="18"
+            max="120"
+            required
+          />
+        </div>
+        <div>
+          <label for="inputGender">Geschlecht</label>
+          <select id="inputGender" name="gender" required>
+            <option value="">Geschlecht wählen</option>
+            <option value="m">männlich</option>
+            <option value="w">weiblich</option>
+            <option value="d">divers</option>
+          </select>
+        </div>
+        <div>
+          <label for="inputBiography">Biografie</label>
+          <textarea
+            id="inputBiography"
+            name="biography"
+            rows="4"
+            placeholder="Erzähl kurz etwas über dich…"
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label for="inputEmail">E-Mail</label>
+          <input
+            type="email"
+            id="inputEmail"
+            name="email"
+            placeholder="E-Mail"
+            required
+          />
+        </div>
+        <div>
+          <label for="inputPassword">Passwort</label>
+          <input
+            type="password"
+            id="inputPassword"
+            name="password"
+            placeholder="Passwort"
+            required
+          />
+        </div>
+        <button type="submit">Account erstellen</button>
+      </form>
+      <p>
+        Schon einen Account? <a href="login.html">Hier einloggen</a>.
+      </p>
+    </section>
+  </main>
+
+  <script src="js/register.js"></script>
+</body>
+</html>
