@@ -18,21 +18,49 @@ body {
   margin: auto;
 }
 
+nav {
+  background: rgba(42, 42, 42, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  
+  > a {
+      text-decoration: none;
+      color: rgba(42,42,42, 1);
+      padding: 8px 16px;
+  }
+    
+  > a:hover {
+      background: rgba(42, 42, 42, 0.2);
+      border-radius: 4px;
+  }
+
+  #logoutBtn {
+    margin-left: auto;
+  }
+}
+
 /* Headings */
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   text-align: center;
   letter-spacing: 1px;
+  color:  #9e3f57;
+  margin-top: 8px;
 }
 
 h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  border-bottom: 2px solid #e60000; /* Swiss red */
   padding-bottom: 5px;
 }
-
+h2, .info-row {
+  border-bottom: 2px solid #ca7fbe;
+}
 /* Sections */
 section {
   background: #fff;
@@ -41,11 +69,14 @@ section {
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  width: 100%;
 }
 
 /* Inputs */
 input[type="text"],
-input[type="number"] {
+input[type="number"], 
+input[type="email"],
+input[type="password"] {
   width: calc(50% - 10px);
   padding: 10px;
   margin: 5px;
@@ -54,10 +85,32 @@ input[type="number"] {
   font-size: 1rem;
 }
 
+ul {
+  margin-left: 20px;
+}
+select {
+      width: calc(50% - 10px);
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea {
+  width: 500px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical; /* Allow vertical resizing */
+}
+
 /* Buttons */
 button {
   display: inline-block;
-  background-color: #e60000; /* Swiss red */
+  background-color: #6a4869;
   color: #fff;
   border: none;
   padding: 12px 20px;
@@ -69,7 +122,12 @@ button {
 }
 
 button:hover {
-  background-color: #cc0000;
+  background-color: #d4a8d5;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 /* Responsive touch */
@@ -78,4 +136,23 @@ button:hover {
   input[type="number"] {
     width: 100%;
   }
+}
+
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-group {
+      display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    label {
+      width: 100px;
+    }
 }

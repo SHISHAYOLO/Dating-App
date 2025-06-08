@@ -14,7 +14,8 @@ echo json_encode([
     "status" => "success",
     "user" => [
         "user_id" => $_SESSION['user_id'],
-        "email"   => $_SESSION['email']
+        "email"   => $_SESSION['email'],
+        "name"    => $_SESSION['name'],
     ]
 ]);
 ?>

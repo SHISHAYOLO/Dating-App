@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Check user in DB
-    $stmt = $pdo->prepare("SELECT user_id AS id, password FROM user_profiles WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT user_id AS id, name, password FROM user_profiles WHERE email = :email");
     $stmt->execute([':email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password'])) {
         session_regenerate_id(true);
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['name']    = $user['name'];
         $_SESSION['email']   = $email;
 
         echo json_encode(["status" => "success"]);

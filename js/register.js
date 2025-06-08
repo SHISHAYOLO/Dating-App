@@ -38,7 +38,6 @@ document
       const result = await response.json();
 
       if (result.status === "success") {
-        alert("Registrierung erfolgreich! Du kannst dich jetzt einloggen.");
         window.location.href = "login.html";
       } else {
         alert(result.message || result.error || "Registrierung fehlgeschlagen.");

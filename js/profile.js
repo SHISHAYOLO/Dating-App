@@ -40,17 +40,16 @@
   // ═══════════════════════════════════════════════
   const sections = {
     userProfile:      document.getElementById("userProfile"),
-    addProfile:       document.getElementById("addAdditionalInfo"),
     updateProfile:    document.getElementById("updateProfile"),
     deleteProfile:    document.getElementById("deleteProfile"),
     errorMsg:         document.getElementById("errorMsg"),
   };
 
   const display = {
-    name:       document.getElementById("name"),
-    age:        document.getElementById("age"),
-    gender:     document.getElementById("gender"),
-    biography:  document.getElementById("biography"),
+    name:       document.getElementById("showName"),
+    age:        document.getElementById("showAge"),
+    gender:     document.getElementById("showGender"),
+    biography:  document.getElementById("showBiography"),
   };
 
   const inputs = {
@@ -61,7 +60,6 @@
   };
 
   const buttons = {
-    create: document.getElementById("btnSaveAdditionalInfo"),
     update: document.getElementById("btnUpdateProfile"),
     delete: document.getElementById("btnDeleteInformation"),
   };
@@ -80,7 +78,6 @@
       sections.userProfile.hidden   = false;
       sections.updateProfile.hidden = false;
       sections.deleteProfile.hidden = false;
-      sections.addProfile.hidden    = true;
 
       // Anzeige-Populate
       display.name.textContent = data.user.name;
@@ -93,12 +90,12 @@
       display.biography.textContent = data.user.biography ?? "–";
 
       // Inputs für Update
+      inputs.name.value       = data.user.name;
       inputs.age.value       = data.user.age ?? "";
       inputs.gender.value    = data.user.gender ?? "";
       inputs.biography.value = data.user.biography ?? "";
     } else {
       // Kein Profil vorhanden
-      sections.addProfile.hidden    = false;
       sections.userProfile.hidden   = true;
       sections.updateProfile.hidden = true;
       sections.deleteProfile.hidden = true;
@@ -110,41 +107,12 @@
   }
 
   // ═══════════════════════════════════════════════
-  // 5) CREATE-Handler
-  // ═══════════════════════════════════════════════
-  buttons.create.addEventListener("click", async () => {
-    sections.errorMsg.textContent = "";
-    const payload = {
-      name: inputs.name.value.trim(),
-      age:       inputs.age.value,
-      gender:    inputs.gender.value,
-      biography: inputs.biography.value.trim(),
-    };
-    try {
-      const res    = await fetch("/api/profile/createProfile.php", {
-        method:      "POST",
-        credentials: "include",
-        headers:     { "Content-Type": "application/json" },
-        body:        JSON.stringify(payload),
-      });
-      const result = await res.json();
-      if (result.success) {
-        window.location.reload();
-      } else {
-        sections.errorMsg.textContent = result.error || result.message || "Fehler beim Anlegen des Profils.";
-      }
-    } catch (err) {
-      sections.errorMsg.textContent = "Netzwerkfehler beim Anlegen des Profils.";
-      console.error(err);
-    }
-  });
-
-  // ═══════════════════════════════════════════════
   // 6) UPDATE-Handler
   // ═══════════════════════════════════════════════
   buttons.update.addEventListener("click", async () => {
     sections.errorMsg.textContent = "";
     const payload = {
+      name:      inputs.name.value.trim(),
       age:       inputs.age.value,
       gender:    inputs.gender.value,
       biography: inputs.biography.value.trim(),
@@ -156,8 +124,8 @@
         headers:     { "Content-Type": "application/json" },
         body:        JSON.stringify(payload),
       });
-      const result = await res.json();
-      if (result.success) {
+      
+      if (res.status === 200) {
         window.location.reload();
       } else {
         sections.errorMsg.textContent = result.error || result.message || "Fehler beim Aktualisieren des Profils.";
@@ -181,7 +149,10 @@
       });
       const result = await res.json();
       if (result.success) {
-        window.location.reload();
+        // redirect to index.html
+        alert("Profil erfolgreich gelöscht.");
+        
+        window.location.href = "index.html";
       } else {
         sections.errorMsg.textContent = result.error || result.message || "Fehler beim Löschen des Profils.";
       }

@@ -6,21 +6,25 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Login</h1>
-
-    <form id="loginForm">
-      <div>
-        <label>Email</label>
-        <input type="email" id="email" required />
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" id="password" required />
-      </div>
-      <button type="submit">Login</button>
-    </form>
-
-    <p>Don’t have an account? <a href="register.html">Register here</a>.</p>
+    
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="login.html">Einloggen</a>
+      <a href="register.html">Registrieren</a>
+    </nav>
+    <main>
+      <h1>Login</h1>
+      <section>
+        <form id="loginForm" style="display: flex; flex-direction: column;">
+            <label>Email</label>
+            <input type="email" placeholder="max.mustermann@hotmail.ch" id="email" required />
+            <label>Password</label>
+            <input type="password" placeholder="Passwort wählen" id="password" required />
+          <button style="align-self: flex-end;" type="submit">Login</button>
+        </form>
+        <p>Noch keinen Account? Lege <a href="register.html">hier</a> einen neuen Account an.</p>
+      </section>
+    </main>
 
     <script src="js/login.js"></script>
   </body>

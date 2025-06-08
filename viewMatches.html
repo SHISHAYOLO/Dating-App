@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wahre Liebe – Startseite</title>
+  <title>Wahre Liebe – Deine Partner</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/viewMatches.css" />
 </head>
 <body>
   <!-- Navigation -->
@@ -17,16 +18,14 @@
   </nav>
 
   <main>
-    <h1>Willkommen bei „Wahre Liebe“</h1>
-    <div id="greeting">Lade Daten …</div>
-
-    <section class="actions">
-      <button id="btnFindMatches">Neue Partner finden</button>
-      <button id="btnViewMatches">Meine Matches ansehen</button>
-    </section>
+    <h1>Deine Partner</h1>
+    <div id="noMatchesMsg" class="error-message" aria-live="polite">
+      <p>Du hast noch keine Partner:innen. Klicke <a href="getMatches.html">hier</a>, um neue Partner:innen zu finden.</p>
+    </div>
+    <div id="matchesContainer" class="matches-container"></div>
   </main>
 
   <script src="js/logout.js"></script>
-  <script src="js/mainpage.js"></script>
+  <script src="js/viewMatches.js"></script>
 </body>
 </html>

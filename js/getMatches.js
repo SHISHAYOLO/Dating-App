@@ -14,6 +14,7 @@
   if (!await checkAuth()) return;
 
   const elems = {
+    profileCard: document.getElementById("profileCard"),
     name:       document.getElementById("name"),
     age:        document.getElementById("age"),
     gender:     document.getElementById("gender"),
@@ -33,10 +34,16 @@
         credentials: "include"
       });
       if (res.status === 204) {
+        elems.btnLike.disabled = true;
+        elems.btnNext.disabled = true;
+        elems.profileCard.style.display = "none";
         elems.errorMsg.textContent = "Keine weiteren Profile verfügbar.";
         return;
       }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      elems.profileCard.style.display = "block";
+      elems.btnLike.disabled = false;
+      elems.btnNext.disabled = false;
       const data = await res.json();
       currentProfile = data.user;
       elems.name.textContent      = `${currentProfile.name}`;

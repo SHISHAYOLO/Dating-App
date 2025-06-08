@@ -12,7 +12,7 @@
     }
     const result = await res.json();
     document.getElementById("greeting").textContent =
-      `Hallo, ${result.user.email}!`;
+      `Hallo, ${result.user.name}!`;
   } catch (err) {
     console.error("Auth-Check fehlgeschlagen:", err);
     window.location.href = "login.html";

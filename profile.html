@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mein Profil – 50+ Dating</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
 </head>
 <body>
   <!-- Navigation -->
   <nav>
-    <a href="index.html">Startseite</a> |
-    <a href="profile.html">Mein Profil</a> |
+    <a href="mainpage.html">Übersicht</a>
+    <a href="getMatches.html">Partner finden</a>
+    <a href="viewMatches.html">Meine Matches</a>
+    <a href="profile.html">Mein Profil</a>
     <button id="logoutBtn">Ausloggen</button>
   </nav>
 
@@ -20,33 +23,18 @@
     <!-- Anzeige bestehender Profildaten -->
     <section id="userProfile" hidden>
       <h2>Deine Daten</h2>
-      <p><strong>Name:</strong> <span id="name">–</span></p>
-      <p><strong>Alter:</strong> <span id="age">–</span></p>
-      <p><strong>Geschlecht:</strong> <span id="gender">–</span></p>
+      <p><strong>Name:</strong> <span id="showName">–</span></p>
+      <p><strong>Alter:</strong> <span id="showAge">–</span></p>
+      <p><strong>Geschlecht:</strong> <span id="showGender">–</span></p>
       <p><strong>Biografie:</strong></p>
-      <p id="biography">–</p>
-    </section>
-
-    <!-- Formular zum Anlegen eines neuen Profils -->
-    <section id="addAdditionalInfo" hidden>
-      <h2>Profil anlegen</h2>
-      <input type="text" id="inputName"  placeholder="Name" />
-      <input type="number" id="inputAge"       placeholder="Alter" min="18" max="120" />
-      <select id="inputGender">
-        <option value="">Geschlecht</option>
-        <option value="m">männlich</option>
-        <option value="w">weiblich</option>
-        <option value="d">divers</option>
-      </select>
-      <textarea id="inputBiography" rows="3" placeholder="Kurze Biografie"></textarea>
-      <button id="btnSaveAdditionalInfo">Speichern</button>
+      <p id="showBiography">–</p>
     </section>
 
     <!-- Formular zum Bearbeiten eines bestehenden Profils -->
     <section id="updateProfile" hidden>
       <h2>Profil bearbeiten</h2>
-      <p><strong>Name:</strong> <span id="name">–</span></p>
-      <input type="number" id="inputAge"       placeholder="Alter" min="18" max="120" />
+      <input type="text" id="inputName" placeholder="Name" value="" />
+      <input type="number" id="inputAge"       placeholder="Alter" value="100" min="18" max="120" />
       <select id="inputGender">
         <option value="">Geschlecht</option>
         <option value="m">männlich</option>

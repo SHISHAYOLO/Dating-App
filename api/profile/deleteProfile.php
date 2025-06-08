@@ -24,7 +24,9 @@ $stmt->bindParam(':user_id', $loggedInUserId, PDO::PARAM_INT);
 
 try {
     $stmt->execute();
-    echo json_encode(["success" => true, "message" => "Profile created."]);
+    session_destroy();
+
+    echo json_encode(["success" => true, "message" => "Profile delete."]);
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(["error" => "Database error: " . $e->getMessage()]);

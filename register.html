@@ -9,16 +9,16 @@
 <body>
   <!-- Navigation -->
   <nav>
-    <a href="index.html">Startseite</a> |
-    <a href="login.html">Einloggen</a> |
+    <a href="index.html">Startseite</a>
+    <a href="login.html">Einloggen</a>
     <a href="register.html">Registrieren</a>
   </nav>
 
   <main>
-    <section>
       <h1>Registrieren</h1>
-      <form id="registerForm">
-        <div>
+    <section>
+      <form id="registerForm" style="display: flex; flex-direction: column;">
+        <div class="input-group">
           <label for="inputName">Name</label>
           <input
             type="text"
@@ -28,7 +28,7 @@
             required
           />
         </div>
-        <div>
+       <div class="input-group">
           <label for="inputAge">Alter</label>
           <input
             type="number"
@@ -40,16 +40,15 @@
             required
           />
         </div>
-        <div>
+       <div class="input-group">
           <label for="inputGender">Geschlecht</label>
           <select id="inputGender" name="gender" required>
-            <option value="">Geschlecht wählen</option>
             <option value="m">männlich</option>
             <option value="w">weiblich</option>
             <option value="d">divers</option>
           </select>
         </div>
-        <div>
+       <div class="input-group">
           <label for="inputBiography">Biografie</label>
           <textarea
             id="inputBiography"
@@ -59,7 +58,7 @@
             required
           ></textarea>
         </div>
-        <div>
+       <div class="input-group">
           <label for="inputEmail">E-Mail</label>
           <input
             type="email"
@@ -69,7 +68,7 @@
             required
           />
         </div>
-        <div>
+       <div class="input-group">
           <label for="inputPassword">Passwort</label>
           <input
             type="password"
@@ -79,7 +78,7 @@
             required
           />
         </div>
-        <button type="submit">Account erstellen</button>
+        <button style="align-self: flex-end;" type="submit">Account erstellen</button>
       </form>
       <p>
         Schon einen Account? <a href="login.html">Hier einloggen</a>.
